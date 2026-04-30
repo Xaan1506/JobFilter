@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "SmartJobFilter - AI Job Matcher",
+  "version": "1.0",
+  "description": "Filters job listings based on your resume and preferences with AI-powered matching.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.linkedin.com/*",
+    "*://*.indeed.com/*",
+    "*://*.glassdoor.com/*",
+    "*://internshala.com/*",
+    "https://api.groq.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.linkedin.com/*",
+        "*://*.indeed.com/*",
+        "*://*.glassdoor.com/*",
+        "*://internshala.com/*"
+      ],
+      "js": ["pdf.min.js", "pdf.worker.min.js", "mammoth.browser.min.js", "parser.js", "matcher.js", "chatbot.js", "content.js"],
+      "css": ["content.css", "chatbot.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["pdf.worker.min.js"],
+      "matches": ["*://*.linkedin.com/*", "*://*.indeed.com/*", "*://*.glassdoor.com/*", "*://internshala.com/*"]
+    }
+  ]
+}

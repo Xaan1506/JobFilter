@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartJobFilter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>SmartJobFilter</h1>
+      <label class="switch">
+        <input type="checkbox" id="toggle-filter" checked>
+        <span class="slider round"></span>
+      </label>
+    </header>
+
+    <main>
+      <section class="upload-section">
+        <h2>Upload Resume</h2>
+        <p class="subtitle">PDF or DOCX format</p>
+        <div class="file-drop-area" id="drop-area">
+          <span class="file-msg">Drag & Drop or Click</span>
+          <input class="file-input" type="file" id="resume-upload" accept=".pdf,.docx">
+        </div>
+        <div id="upload-status" class="status-msg"></div>
+        <div id="resume-actions" class="resume-actions">
+          <button id="remove-resume" class="btn danger">🗑️ Remove Current Resume</button>
+        </div>
+      </section>
+
+      <section class="preferences-section">
+        <h2>Job Preferences</h2>
+        <div class="filter-group">
+          <label for="job-type">Job Type:</label>
+          <select id="job-type">
+            <option value="any">Any</option>
+            <option value="internship">Internship</option>
+            <option value="full-time">Full-time</option>
+            <option value="part-time">Part-time</option>
+            <option value="contract">Contract</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="work-mode">Work Mode:</label>
+          <select id="work-mode">
+            <option value="any">Any</option>
+            <option value="remote">Remote</option>
+            <option value="hybrid">Hybrid</option>
+            <option value="onsite">On-site</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="location">Location (optional):</label>
+          <input type="text" id="location" placeholder="e.g. New York, Remote">
+        </div>
+        <button id="save-preferences" class="btn primary">Save & Filter</button>
+      </section>
+
+      <div class="ai-status-bar">
+
+        <span class="ai-text">Deep Search Active — Click match badges for analysis</span>
+      </div>
+
+      <section class="profile-summary">
+        <h3>Extracted Skills</h3>
+        <div id="extracted-skills" class="skills-container">
+          <!-- Skills will appear here -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Include parsers -->
+  <script src="pdf.min.js"></script>
+  <script src="mammoth.browser.min.js"></script>
+  
+  <script src="parser.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

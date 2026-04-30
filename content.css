@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+.sjf-badge-wrapper {
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.sjf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sjf-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  filter: brightness(1.1);
+}
+
+.sjf-badge svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Modal Overlay */
+.sjf-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(8, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: sjf-fade-in 0.3s ease-out;
+}
+
+@keyframes sjf-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sjf-modal-content {
+  background: linear-gradient(145deg, #131a2b 0%, #0b0f1a 100%);
+  color: #f8fafc;
+  padding: 32px;
+  border-radius: 24px;
+  width: 500px;
+  max-width: 90vw;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255,255,255,0.08);
+  font-family: 'Outfit', sans-serif;
+  position: relative;
+  line-height: 1.6;
+  animation: sjf-slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes sjf-slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sjf-modal-close {
+  position: absolute;
+  top: 24px; right: 24px;
+  cursor: pointer;
+  color: #94a3b8;
+  transition: all 0.2s;
+  background: rgba(255,255,255,0.05);
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+}
+.sjf-modal-close:hover { 
+  color: #f8fafc; 
+  background: rgba(255,255,255,0.1);
+  transform: rotate(90deg);
+}
+
+.sjf-prompt-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s;
+  font-size: 15px;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.sjf-prompt-btn:hover { 
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.4);
+  filter: brightness(1.1);
+}
+
+.sjf-prompt-btn:active {
+  transform: translateY(0);
+}
+
+/* AI Results Styling */
+#sjf-ai-results {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  font-size: 14px;
+  color: #e2e8f0;
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #475569 transparent;
+}
+
+#sjf-ai-results::-webkit-scrollbar { width: 6px; }
+#sjf-ai-results::-webkit-scrollbar-thumb { background: #475569; border-radius: 10px; }
+
+/* Match Detail Sections */
+.sjf-section { margin-bottom: 20px; }
+.sjf-section strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.sjf-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sjf-tag {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.sjf-tag.success { 
+  background: rgba(16, 185, 129, 0.1); 
+  color: #10b981; 
+  border: 1px solid rgba(16, 185, 129, 0.2); 
+}
+
+.sjf-tag.danger { 
+  background: rgba(239, 68, 68, 0.1); 
+  color: #ef4444; 
+  border: 1px solid rgba(239, 68, 68, 0.2); 
+}
+
+.sjf-breakdown {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.sjf-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sjf-stat-label {
+  font-size: 11px;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.sjf-stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+/* Animations */
+@keyframes sjf-spin {
+  100% { transform: rotate(360deg); }
+}
+.sjf-spin { animation: sjf-spin 1s linear infinite; display: inline-block; }
