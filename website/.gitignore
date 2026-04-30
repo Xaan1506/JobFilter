@@ -15,8 +15,6 @@ logs
 npm-debug.log*
 
 # Extension Packages
-*.zip
-SmartJobFilter.zip
 
 # Editor directories and files
 .vscode/*
