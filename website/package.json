@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "package": "cd .. && zip -r website/SmartJobFilter.zip . -x \"website/*\" \"*.zip\" \".git/*\" \"node_modules/*\""
+    "package": "cd .. && zip -r website/public/SmartJobFilter.zip . -x \"website/*\" \"*.zip\" \".git/*\" \"node_modules/*\""
   },
   "keywords": [],
   "author": "",
