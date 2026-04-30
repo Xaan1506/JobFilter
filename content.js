@@ -1,6 +1,6 @@
 // SmartJobFilter Content Script
-// Replace this with your actual Vercel domain once deployed (e.g., 'https://your-site.vercel.app/api/chat')
-var BACKEND_URL = 'https://jobfilter-backend.vercel.app/api/chat'; // Placeholder
+// Connected to live Vercel Backend
+var BACKEND_URL = 'https://job-filter-kappa.vercel.app/api/chat';
 var currentSite = null;
 if (window.location.hostname.includes('linkedin.com')) currentSite = 'linkedin';
 else if (window.location.hostname.includes('indeed.com')) currentSite = 'indeed';
