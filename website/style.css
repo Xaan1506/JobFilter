@@ -151,6 +151,7 @@ h1 {
 .gradient-text {
     background: var(--gradient-main);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -455,4 +456,45 @@ h1 {
     .features-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Troubleshooting Section */
+.troubleshooting {
+    padding: 80px 0;
+    background: rgba(99, 102, 241, 0.03);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.tip-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tip-badge {
+    background: var(--gradient-main);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.tip-content {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.tip-content b {
+    color: var(--text-primary);
 }
