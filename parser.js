@@ -50,12 +50,17 @@ class ResumeParser {
       "React", "Angular", "Vue", "Node.js", "Express", "Django", "Flask", "Spring", "Laravel", ".NET",
       "SQL", "MySQL", "PostgreSQL", "MongoDB", "Redis", "Firebase", "Cassandra", "Elasticsearch",
       "AWS", "Azure", "GCP", "Docker", "Kubernetes", "Git", "GitHub", "GitLab", "CI/CD", "Jenkins", "GitHub Actions", "Docker Compose",
-      "Machine Learning", "AI", "Data Science", "Deep Learning", "NLP", "TensorFlow", "PyTorch", "LLM", "Generative AI", "GenAI", "RAG", "OpenAI", "Hugging Face",
+      "Machine Learning", "ML", "AI", "Data Science", "Deep Learning", "DL", "NLP", "TensorFlow", "PyTorch", "LLM", "Generative AI", "GenAI", "RAG", "OpenAI", "Hugging Face",
       "HTML", "CSS", "SASS", "LESS", "TypeScript", "Tailwind", "Bootstrap", "Next.js", "Nuxt.js",
       "GraphQL", "REST API", "OAuth 2.0", "Figma", "UI/UX", "Agile", "Scrum", "Jira", "Linux", "Bash", "Excel", "Data Structure"
     ];
 
-    const foundSkills = [];
+    const aliasMap = {
+      "ml": "Machine Learning",
+      "dl": "Deep Learning"
+    };
+
+    const foundSkills = new Set();
     const lowerText = " " + text.toLowerCase() + " ";
 
     for (const skill of commonSkills) {
@@ -64,10 +69,11 @@ class ResumeParser {
       // Use whitespace/punctuation boundaries to safely match terms like C++ and .NET
       const regex = new RegExp(`(?:^|\\s|[.,/()!?;:])${escapedSkill}(?=\\s|[.,/()!?;:]|$)`, 'i');
       if (regex.test(lowerText)) {
-        foundSkills.push(skill);
+        const normalized = aliasMap[skill.toLowerCase()] || skill;
+        foundSkills.add(normalized);
       }
     }
 
-    return foundSkills;
+    return Array.from(foundSkills);
   }
 }

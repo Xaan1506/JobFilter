@@ -217,7 +217,7 @@ async function processJobCards() {
             body: JSON.stringify({ 
               model: "llama-3.3-70b-versatile",
               messages: [
-                { role: "system", content: "You are an expert technical recruiter and career advisor. You must read the 'About the job' section with extreme care to identify subtle requirements and cultural fit. Analyze resume vs job description. Be specific and concise." },
+                { role: "system", content: "You are an expert technical recruiter and career advisor. You must read the 'About the job' section with extreme care to identify subtle requirements and cultural fit. Note: Treat 'ML' as Machine Learning and 'DL' as Deep Learning. Analyze resume vs job description. Be specific and concise." },
                 { role: "user", content: prompt }
               ],
               temperature: 0.7,
